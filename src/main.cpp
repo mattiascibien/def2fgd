@@ -187,15 +187,15 @@ void writefgd(std::ostream& stream, const std::vector<Entity>& entities, const F
             const Key& key = entity.keys[j];
             stream << "\t" << key.name;
             if (key.name == "target") {
-                stream << "(target_destination) : Target : : ";
+                stream << "(target_destination) : \"Target\" : : ";
             }
             else if (key.name == "targetname") {
-                stream << "(target_source) : Name : : ";
+                stream << "(target_source) : \"Name\" : : ";
             }
             else if (key.name == "_color") {
                 stream << "(color1) : \"RGB color\" : \"1 1 0.5\" : ";
             } else if (key.name == "model" || key.name == "model2") {
-                stream << "(studio) : Model : : ";
+                stream << "(studio) : \"Model\" : : ";
             } else {
                 std::string name = key.name;
                 if (!name.empty())
@@ -204,7 +204,7 @@ void writefgd(std::ostream& stream, const std::vector<Entity>& entities, const F
                     stream << "(string)";
                 else
                     stream << "(" << key.type << ")";
-                stream << " : " << name << " : : ";
+                stream << " : \"" << name << "\" : : ";
             }
             
             stream << "\"" << key.description << "\"";
